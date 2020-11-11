@@ -46,8 +46,12 @@
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnMultiplicación = new System.Windows.Forms.Button();
             this.btn3 = new System.Windows.Forms.Button();
-            this.tbHistorial = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnMostrar = new System.Windows.Forms.Button();
+            this.DGV = new System.Windows.Forms.DataGridView();
+            this.btnHistorial = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             this.SuspendLayout();
             // 
             // tbDisplay
@@ -247,32 +251,68 @@
             this.btn3.UseVisualStyleBackColor = true;
             this.btn3.Click += new System.EventHandler(this.btn3_Click);
             // 
-            // tbHistorial
+            // btnGuardar
             // 
-            this.tbHistorial.Location = new System.Drawing.Point(341, 31);
-            this.tbHistorial.Multiline = true;
-            this.tbHistorial.Name = "tbHistorial";
-            this.tbHistorial.Size = new System.Drawing.Size(111, 211);
-            this.tbHistorial.TabIndex = 20;
-            this.tbHistorial.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.btnGuardar.Location = new System.Drawing.Point(341, 218);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(54, 23);
+            this.btnGuardar.TabIndex = 22;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // label1
+            // btnMostrar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(368, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 15);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Historial";
+            this.btnMostrar.Location = new System.Drawing.Point(459, 218);
+            this.btnMostrar.Name = "btnMostrar";
+            this.btnMostrar.Size = new System.Drawing.Size(53, 23);
+            this.btnMostrar.TabIndex = 24;
+            this.btnMostrar.Text = "Mostrar";
+            this.btnMostrar.UseVisualStyleBackColor = true;
+            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
+            // 
+            // DGV
+            // 
+            this.DGV.AllowUserToOrderColumns = true;
+            this.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV.Location = new System.Drawing.Point(341, 31);
+            this.DGV.Name = "DGV";
+            this.DGV.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.DGV.Size = new System.Drawing.Size(171, 182);
+            this.DGV.TabIndex = 25;
+            this.DGV.VirtualMode = true;
+            // 
+            // btnHistorial
+            // 
+            this.btnHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistorial.Location = new System.Drawing.Point(387, 2);
+            this.btnHistorial.Name = "btnHistorial";
+            this.btnHistorial.Size = new System.Drawing.Size(74, 23);
+            this.btnHistorial.TabIndex = 26;
+            this.btnHistorial.Text = "Historial";
+            this.btnHistorial.UseVisualStyleBackColor = true;
+            this.btnHistorial.Click += new System.EventHandler(this.btnHistorial_Click);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Location = new System.Drawing.Point(401, 218);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(52, 23);
+            this.btnNuevo.TabIndex = 27;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 253);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbHistorial);
+            this.ClientSize = new System.Drawing.Size(516, 253);
+            this.Controls.Add(this.btnNuevo);
+            this.Controls.Add(this.btnHistorial);
+            this.Controls.Add(this.DGV);
+            this.Controls.Add(this.btnMostrar);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btn3);
             this.Controls.Add(this.btnMultiplicación);
             this.Controls.Add(this.btnBorrar);
@@ -293,6 +333,7 @@
             this.Controls.Add(this.tbDisplay);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,8 +359,11 @@
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnMultiplicación;
         private System.Windows.Forms.Button btn3;
-        private System.Windows.Forms.TextBox tbHistorial;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnMostrar;
+        private System.Windows.Forms.DataGridView DGV;
+        private System.Windows.Forms.Button btnHistorial;
+        private System.Windows.Forms.Button btnNuevo;
     }
 }
 

@@ -13,10 +13,10 @@ namespace Calculadora
 {
     public partial class Form1 : Form
     {
-        private double valor1;
-        private double valor2;
+        private decimal valor1;
+        private decimal valor2;
 
-        private double resultado;
+        private decimal resultado;
 
         public int operacion;
 
@@ -96,7 +96,7 @@ namespace Calculadora
         private void btnIgual_Click(object sender, EventArgs e)
         {
             //Botón Igual
-            valor2 = Convert.ToDouble(tbDisplay.Text);
+            valor2 = Convert.ToDecimal(tbDisplay.Text);
 
             
             switch (operacion)
@@ -118,13 +118,15 @@ namespace Calculadora
                     break;
             }
 
-            tbDisplay.Text = resultado.ToString();
+            tbDisplay.Text = decimal.Round(resultado, 4).ToString();
+
+
         }
 
         private void btnSuma_Click(object sender, EventArgs e)
         {
             //Botón SUMA
-            valor1 = Convert.ToDouble(tbDisplay.Text);
+            valor1 = Convert.ToDecimal(tbDisplay.Text);
             operacion = 1;
             tbDisplay.Text = "";
         }
@@ -133,7 +135,7 @@ namespace Calculadora
         {
             //Botón RESTA
             operacion = 2;
-            valor1 = Convert.ToDouble(tbDisplay.Text);
+            valor1 = Convert.ToDecimal(tbDisplay.Text);
             tbDisplay.Text = "";
         }
 
@@ -141,7 +143,7 @@ namespace Calculadora
         {
             //Botón MULTIPLICACION
             operacion = 3;
-            valor1 = Convert.ToDouble(tbDisplay.Text);
+            valor1 = Convert.ToDecimal(tbDisplay.Text);
             tbDisplay.Text = "";
         }
 
@@ -149,7 +151,7 @@ namespace Calculadora
         {
             //Botón DIVISION
             operacion = 4;
-            valor1 = Convert.ToDouble(tbDisplay.Text);
+            valor1 = Convert.ToDecimal(tbDisplay.Text);
             tbDisplay.Text = "";
         }
 
@@ -159,10 +161,45 @@ namespace Calculadora
             tbDisplay.Text = tbDisplay.Text + ",";
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void btnHistorial_Click(object sender, EventArgs e)
+        {
+            tabla.TableName = "Historial";
+            tabla.Columns.Add("Resultado", typeof(string));
+
+            DGV.DataSource = tabla;
+
+            DGV.Text = resultado.ToString();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
             tabla.WriteXml(@"HistorialReesultado.xml");
-            tbHistorial.Text = valor1.ToString() +  " + " + valor2.ToString() + " = " + resultado.ToString();
+
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                tabla.Rows.Add();
+
+                tabla.Rows[tabla.Rows.Count - 1]["Resultado"] = System.Convert.ToDouble(tbDisplay.Text);
+
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show("Error:\r\n"
+                                 + ee.Message
+                                 + "\r\n" + ee.StackTrace);
+
+            }
+        }
+
+        private void btnMostrar_Click(object sender, EventArgs e)
+        {
+            tabla.ReadXml(@"HistorialReesultado.xml");
+
+            DGV.DataSource = tabla;
         }
     }
 }
