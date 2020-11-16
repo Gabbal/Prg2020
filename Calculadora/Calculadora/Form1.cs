@@ -120,14 +120,15 @@ namespace Calculadora
 
             tbDisplay.Text = decimal.Round(resultado, 4).ToString();
 
+            //IGUAL operador = new IGUAL();
 
         }
 
         private void btnSuma_Click(object sender, EventArgs e)
         {
             //Botón SUMA
-            valor1 = Convert.ToDecimal(tbDisplay.Text);
             operacion = 1;
+            valor1 = Convert.ToDecimal(tbDisplay.Text);
             tbDisplay.Text = "";
         }
 
